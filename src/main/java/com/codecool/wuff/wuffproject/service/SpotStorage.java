@@ -13,9 +13,13 @@ import java.util.List;
 public class SpotStorage {
 
     private List<Spot> spotList = new LinkedList<>();
-
+    private Spot spot1 = new Spot("1139 Forgach utca", "Nice place with a small puddle for them to swim.");
+    private Spot spot2 = new Spot("1139 Nepfurdo utca", "Beautifull place to chill on the bank of the Danube.");
 
     public SpotStorage() {
+        spotList.add(spot1);
+        spotList.add(spot2);
+
     }
 
     public void addSpot(Spot spot) {

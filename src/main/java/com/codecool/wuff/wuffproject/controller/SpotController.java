@@ -17,17 +17,8 @@ public class SpotController {
 
     @GetMapping("/list")
     public List<Spot> spotList() {
-        spotStorage.addSpot(new Spot("macska utca"));
         return spotStorage.getSpots();
     }
-
-    @GetMapping("/add")
-    public Spot addSpot() {
-        Spot spot = new Spot("kalapacs utca");
-        spotStorage.addSpot(spot);
-        return spot;
-    }
-
 
 
 }

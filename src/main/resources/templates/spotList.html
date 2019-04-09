@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Codecool"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="/static/css/checkout.css"/>
+    <title>Wuff</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 <body>
-<tr th:each ="spot : ${spots}">
-    <td th:text="${spot.id}">...</td>
-    <td th:text="${spot.address}">...</td>
-    <td th:text="${spot.description}">...</td>
-</tr>
+<div class="container">
+<div id="products" class="row">
+    <div class="col col-sm-6 col-md-5 col-lg-3 pb-5" th:each="spot: ${spots}">
+        <div class="card">
+            <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff" th:attr="src='static/images/spot'+${spot.id}+'.jpg'" alt=""/>
+            <div class="card-header">
+                <h4 class="card-title" th:text="${spot.address}">Address</h4>
+                <button type="button" class="btn btn-primary more-btn" data-placement="top">
+                    More
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 </html>

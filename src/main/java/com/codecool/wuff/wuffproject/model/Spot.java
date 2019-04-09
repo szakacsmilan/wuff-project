@@ -11,7 +11,6 @@ public class Spot {
     private String description;
     private int likeNum;
     private List<String> comments = new ArrayList<>();
-
     public Spot(String address, String description) {
         counterId++;
         this.id = counterId;
@@ -59,4 +58,5 @@ public class Spot {
     public void setId(int id) {
         this.id = id;
     }
+
 }

@@ -5,12 +5,16 @@ import java.util.List;
 
 public class Spot {
 
+    private int id;
+    private static int counterId = 0;
     private String address;
     private String description;
     private int likeNum;
     private List<String> comments = new ArrayList<>();
 
     public Spot(String address, String description) {
+        counterId++;
+        this.id = counterId;
         this.address = address;
         this.description = description;
         this.likeNum = 0;
@@ -46,5 +50,13 @@ public class Spot {
 
     public void setComments(List<String> comments) {
         this.comments = comments;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

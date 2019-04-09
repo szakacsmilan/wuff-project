@@ -20,5 +20,13 @@ public class SpotController {
         return spotStorage.getSpots();
     }
 
-
+    @GetMapping("/{id}")
+    public Spot spot(@PathVariable("id") int id){
+        for(Spot spot: spotStorage.getSpots()){
+            if(spot.getId() ==  id){
+                return spot;
+            }
+        }
+        return null;
+    }
 }

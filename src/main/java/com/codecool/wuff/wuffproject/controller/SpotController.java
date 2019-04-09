@@ -3,12 +3,14 @@ package com.codecool.wuff.wuffproject.controller;
 import com.codecool.wuff.wuffproject.model.Spot;
 import com.codecool.wuff.wuffproject.service.SpotStorage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@RestController
+@Controller
 @RequestMapping("/spot")
 public class SpotController {
 
@@ -16,17 +18,21 @@ public class SpotController {
     private SpotStorage spotStorage;
 
     @GetMapping("/list")
-    public List<Spot> spotList() {
-        return spotStorage.getSpots();
+    public String spotList(Model model) {
+        model.addAttribute("spots", spotStorage.getSpots());
+        return "spotList";
     }
 
     @GetMapping("/{id}")
-    public Spot spot(@PathVariable("id") int id){
+    public String spot(@PathVariable("id") int id, Model model){
+        Spot currentSpot = null;
         for(Spot spot: spotStorage.getSpots()){
             if(spot.getId() ==  id){
-                return spot;
+                currentSpot = spot;
+                break;
             }
         }
-        return null;
+        model.addAttribute("spot", currentSpot);
+        return "spot";
     }
 }

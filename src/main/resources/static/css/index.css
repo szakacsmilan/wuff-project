@@ -3,6 +3,37 @@ body {
 }
 
 .tweet {
-    background-color: rgba(239,239,239,0.85);
+    background-color: rgba(223,216,200,0.95);
+    border-radius: 10px;
 }
 
+.media-list {
+    background-color: rgba(235,235,235,0.95);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.logo {
+    border-radius: 10px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.panel-heading {
+    margin: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(82,87,93,0.95);
+    text-align: center;
+}
+
+.btn {
+    background-color: rgba(89,94,99,0.95);
+}
+
+
+.img-circle {
+    margin-right: 20px;
+}

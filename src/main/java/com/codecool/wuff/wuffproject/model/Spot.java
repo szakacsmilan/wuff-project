@@ -9,15 +9,17 @@ public class Spot {
     private static int counterId = 0;
     private String address;
     private String description;
+    private String map;
     private int likeNum;
     private List<String> comments = new ArrayList<>();
 
-    public Spot(String address, String description) {
+    public Spot(String address, String description, String map) {
         counterId++;
         this.id = counterId;
         this.address = address;
         this.description = description;
         this.likeNum = 0;
+        this.map = map;
     }
 
     public String getAddress() {
@@ -58,5 +60,13 @@ public class Spot {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getMap() {
+        return map;
+    }
+
+    public void setMap(String map) {
+        this.map = map;
     }
 }

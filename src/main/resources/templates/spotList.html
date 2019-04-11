@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Codecool"/>
+
+    <title>Wuff</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/spotList.css}"/>
+
 </head>
 <body>
-<tr th:each ="spot : ${spots}">
-    <td th:text="${spot.id}">...</td>
-    <td th:text="${spot.address}">...</td>
-    <td th:text="${spot.description}">...</td>
-</tr>
+
+<div th:replace="navbar.html :: navbar">...</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-6 col-md-5 col-lg-3 pb-5" th:each="spot: ${spots}">
+            <div class="card">
+                <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff" th:attr="src='/images/spot_' + ${spot.getId()} + '.jpg'" alt="wuff" />
+                <div class="card-header">
+                    <h4 class="card-title" th:text="${spot.getAddress()}">Address</h4>
+                    <a class="btn btn-primary" href="#" th:href="'/spot/' + ${spot.getId()}" role="button">More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

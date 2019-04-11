@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="author" content="Codecool"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" href="/static/css/checkout.css"/>
+
     <title>Wuff</title>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -18,22 +17,28 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/spotList.css}"/>
+
 </head>
 <body>
+
+<div th:replace="navbar.html :: navbar">...</div>
+
 <div class="container">
-<div id="products" class="row">
-    <div class="col col-sm-6 col-md-5 col-lg-3 pb-5" th:each="spot: ${spots}">
-        <div class="card">
-            <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff" th:attr="src='static/images/spot'+${spot.id}+'.jpg'" alt=""/>
-            <div class="card-header">
-                <h4 class="card-title" th:text="${spot.address}">Address</h4>
-                <button type="button" class="btn btn-primary more-btn" data-placement="top">
-                    More
-                </button>
+    <div class="row">
+        <div class="col col-sm-6 col-md-5 col-lg-3 pb-5" th:each="spot: ${spots}">
+            <div class="card">
+                <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff" th:attr="src='/images/spot_' + ${spot.getId()} + '.jpg'" alt="wuff" />
+                <div class="card-header">
+                    <h4 class="card-title" th:text="${spot.getAddress()}">Address</h4>
+                    <a class="btn btn-primary" href="#" th:href="'/spot/' + ${spot.getId()}" role="button">More</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
 </body>
 </html>

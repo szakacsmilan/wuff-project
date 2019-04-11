@@ -2,6 +2,11 @@ body {
     background: url("/images/dogpawbackground.png");
 }
 
+.map-card {
+    background-color: rgba(223,216,200,0.95);
+    border-radius: 10px;
+}
+
 .tweet {
     background-color: rgba(223,216,200,0.95);
     border-radius: 10px;
@@ -36,4 +41,14 @@ body {
 
 .img-circle {
     margin-right: 20px;
+}
+
+.map {
+
+    border-radius: 10px;
+    width: 100%;
+}
+
+.map-pict {
+    margin-top: 30px;
 }

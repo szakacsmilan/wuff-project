@@ -1,7 +1,7 @@
 
 .headline{
     padding: 35px;
-    margin-left: 35px;
+    margin-left: 65px;
 }
 
 .info{
@@ -14,4 +14,14 @@
 
 .map{
     margin-left: -40px;
+}
+body {
+    background: url("/images/dogpawbackground.png");
+}
+
+.map-card {
+    background-color: rgba(223,216,200,0.95);
+    border-radius: 10px;
+    padding-top: 35px;
+    padding-left: 20px;
 }

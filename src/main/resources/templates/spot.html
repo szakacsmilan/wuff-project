@@ -30,7 +30,7 @@
         <i class="fa fa-thumbs-down" style="font-size:36px"></i>
     </div>
 
-    <div class="col-12 col-sm-6 col-md-8 info">
+    <div class="col-12 col-sm-6 col-md-8 info container map-card">
         <p th:text="${spot.getDescription()}">Description</p>
         <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff"
              th:attr="src='/images/spot_' + ${spot.getId()} + '.jpg'" alt="wuff"/>

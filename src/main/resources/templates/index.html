@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,6 +13,8 @@
 
 </head>
 <body>
+
+<div th:replace="navbar.html :: navbar">...</div>
 
 <div class="container">
     <div class="row">
@@ -85,7 +87,7 @@
             </div>
         </div>
         <div class="col-sm-1"></div>
-        <div class="map-card col-sm-5">
+        <div class=" col-sm-5">
             <div class="map-pict col-sm-11">
                 <img class="map-pic2" src="/images/map.jpg" height="600" width="400">
             </div>

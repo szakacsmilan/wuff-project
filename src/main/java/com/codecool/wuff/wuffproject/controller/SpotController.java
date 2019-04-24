@@ -1,6 +1,7 @@
 package com.codecool.wuff.wuffproject.controller;
 
 import com.codecool.wuff.wuffproject.model.Spot;
+import com.codecool.wuff.wuffproject.repository.SpotRepository;
 import com.codecool.wuff.wuffproject.service.SpotStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,18 +16,18 @@ import java.util.List;
 public class SpotController {
 
     @Autowired
-    private SpotStorage spotStorage;
+    private SpotRepository spotRepository;
 
     @GetMapping("/list")
     public String spotList(Model model) {
-        model.addAttribute("spots", spotStorage.getSpots());
+        model.addAttribute("spots", spotRepository.findAll());
         return "spotList";
     }
 
     @GetMapping("/{id}")
     public String spot(@PathVariable("id") int id, Model model){
         Spot currentSpot = null;
-        for(Spot spot: spotStorage.getSpots()){
+        for(Spot spot: spotRepository.findAll()){
             if(spot.getId() ==  id){
                 currentSpot = spot;
                 break;

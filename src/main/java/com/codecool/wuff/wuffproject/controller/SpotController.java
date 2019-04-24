@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 
 @Controller
 @RequestMapping("/spot")
@@ -34,5 +32,11 @@ public class SpotController {
         }
         model.addAttribute("spot", currentSpot);
         return "spot";
+    }
+
+
+    @GetMapping("/googlemaps")
+    public String googleMaps(Model model) {
+        return "googlemaps";
     }
 }

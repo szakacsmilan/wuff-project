@@ -47,7 +47,7 @@ public class WuffProjectApplication{
                     //.map("2696.5532939776904!2d19.10653331594367!3d47.47913377917649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dcc52f497a2d%3A0xbee033988ae994db!2zTsOpcGxpZ2V0!5e0!3m2!1shu!2shu!4v1554995425166!5m2!1shu!2shu")
                     .build();
 
-            spotRepository.saveAll(Lists.newArrayList(spot1, spot2, spot3, spot4));
+            spotRepository.save(spot1);
 
 
         };

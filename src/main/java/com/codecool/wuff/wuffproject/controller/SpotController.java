@@ -36,4 +36,17 @@ public class SpotController {
         model.addAttribute("spot", currentSpot);
         return "spot";
     }
+
+    @PostMapping("/{id}/comment")
+    public String spotComment(@RequestParam("comment") String comment, @PathVariable("id") int id, Model model){
+
+        for (Spot spot: spotRepository.findAll()) {
+            if(spot.getId() ==  id) {
+                spot.addComment(comment);
+                spotRepository.save(spot);
+                break;
+            }
+        }
+        return "redirect:/spot/{id}";
+    }
 }

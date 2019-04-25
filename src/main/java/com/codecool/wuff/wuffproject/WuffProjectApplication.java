@@ -23,6 +23,7 @@ public class WuffProjectApplication{
     @Bean
     public CommandLineRunner init() {
         return args -> {
+
             Spot spot1 = Spot.builder()
                     .address("1139 Forgach utca")
                     .description("Nice place with a small puddle for them to swim.")
@@ -44,6 +45,8 @@ public class WuffProjectApplication{
             Spot spot4 = Spot.builder()
                     .address("1101 Népliget")
                     .description("Beautiful and big area.")
+                    .comment("Sukár egy környék.")
+                    .comment("Az biztos Jóska.")
                     .map("2696.5532939776904!2d19.10653331594367!3d47.47913377917649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dcc52f497a2d%3A0xbee033988ae994db!2zTsOpcGxpZ2V0!5e0!3m2!1shu!2shu!4v1554995425166!5m2!1shu!2shu")
                     .build();
 

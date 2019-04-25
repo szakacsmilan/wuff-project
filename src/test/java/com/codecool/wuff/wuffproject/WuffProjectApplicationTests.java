@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -29,6 +31,22 @@ public class WuffProjectApplicationTests {
 
         assertThat(spotRepository.findAll())
                 .hasSize(5);
+    }
+
+
+    @Test
+    public void testAddNewComment(){
+
+        for (Spot spot: spotRepository.findAll()) {
+            if(spot.getId() == 1){
+                spot.addComment("vauvau");
+                spotRepository.save(spot);
+            }
+        }
+
+
+
+        assertThat(spotRepository.findAll().get(0).getComments()).hasSize(1);
     }
 
 }

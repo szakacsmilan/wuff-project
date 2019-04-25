@@ -1,7 +1,7 @@
 
 .headline{
-    padding: 35px;
-    margin-left: 65px;
+    padding: 15px;
+    text-align: center;
 }
 
 .info{
@@ -12,16 +12,19 @@
     height: 300px;
 }
 
-.map{
-    margin-left: -40px;
-}
 body {
     background: url("/images/dogpawbackground.png");
+    text-align: center;
 }
 
 .map-card {
     background-color: rgba(223,216,200,0.95);
-    border-radius: 10px;
-    padding-top: 35px;
-    padding-left: 20px;
+}
+
+.map-card2{
+    background-color: rgba(255,255,255,0.45);
+    border-radius: 20px;
+}
+.comment{
+    width: 50%;
 }

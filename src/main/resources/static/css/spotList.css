@@ -1,5 +1,5 @@
 .thumbnail-img {
-    height: 300px;
+    height: 200px;
 }
 
 .container{
@@ -8,4 +8,24 @@
 
 body {
     background: url("/images/dogpawbackground.png");
+}
+
+.btn {
+    background-color: rgba(89,94,99,0.95);
+}
+
+.col-sm-6 {
+    background-color: rgba(203,187,163,0.95);
+    border-radius: 10px;
+    margin: 10px;
+
+}
+
+.spot-pictures {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.thumbnail-img {
+    border-radius: 10px;
 }

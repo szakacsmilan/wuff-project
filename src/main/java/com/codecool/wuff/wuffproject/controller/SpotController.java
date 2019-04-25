@@ -38,7 +38,7 @@ public class SpotController {
     }
 
     @PostMapping("/{id}/comment")
-    public String spotComment(@RequestParam("comment") String comment, @PathVariable("id") int id, Model model){
+    public String spotComment(@RequestParam("comment") String comment, @PathVariable("id") int id){
 
         for (Spot spot: spotRepository.findAll()) {
             if(spot.getId() ==  id) {

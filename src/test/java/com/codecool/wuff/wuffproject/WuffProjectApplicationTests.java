@@ -1,6 +1,8 @@
 package com.codecool.wuff.wuffproject;
 
+import com.codecool.wuff.wuffproject.model.Newsfeed;
 import com.codecool.wuff.wuffproject.model.Spot;
+import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
 import com.codecool.wuff.wuffproject.repository.SpotRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,6 +22,9 @@ public class WuffProjectApplicationTests {
 
     @Autowired
     private SpotRepository spotRepository;
+
+    @Autowired
+    private NewsFeedRepository newsFeedRepository;
 
     @Test
     public void testAddNewSpot(){
@@ -49,4 +55,15 @@ public class WuffProjectApplicationTests {
         assertThat(spotRepository.findAll().get(0).getComments()).hasSize(1);
     }
 
+    @Test
+    public void testAddNewsFeed(){
+        Newsfeed newsfeed = Newsfeed.builder()
+                .comment("asd")
+                .birthDate(LocalDateTime.now())
+                .build();
+
+        newsFeedRepository.save(newsfeed);
+        assertThat(newsFeedRepository.findAll()).hasSize(3);
+
+    }
 }

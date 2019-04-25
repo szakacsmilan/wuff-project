@@ -1,6 +1,8 @@
 package com.codecool.wuff.wuffproject;
 
+import com.codecool.wuff.wuffproject.model.Newsfeed;
 import com.codecool.wuff.wuffproject.model.Spot;
+import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
 import com.codecool.wuff.wuffproject.repository.SpotRepository;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +12,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @SpringBootApplication
 public class WuffProjectApplication{
 
     @Autowired
     private SpotRepository spotRepository;
+    @Autowired
+    private NewsFeedRepository newsFeedRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(WuffProjectApplication.class, args);
@@ -51,6 +58,18 @@ public class WuffProjectApplication{
                     .build();
 
             spotRepository.saveAll(Lists.newArrayList(spot1, spot2, spot3, spot4));
+
+            Newsfeed newsfeed1 = Newsfeed.builder()
+                    .comment("Anybody available from 2pm today? I'm gonna go to Népliget.")
+                    .birthDate(LocalDateTime.of(2019,4,20,4,19))
+                    .build();
+
+            Newsfeed newsfeed2 = Newsfeed.builder()
+                    .comment("Hello.Which dogfoood is the best?")
+                    .birthDate(LocalDateTime.of(2019,4,20,4,20))
+                    .build();
+
+            newsFeedRepository.saveAll(Lists.newArrayList(newsfeed1, newsfeed2));
 
 
         };

@@ -28,3 +28,7 @@ body {
 .comment{
     width: 50%;
 }
+
+.adressbox {
+    display: inline;
+}

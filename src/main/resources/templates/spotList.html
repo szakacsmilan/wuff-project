@@ -20,16 +20,22 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/spotList.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
 
 
 </head>
 <body>
-
-<div th:replace="navbar.html :: navbar">...</div>
-
 <div class="container">
     <div class="row">
-        <div class="col col-sm-6 col-md-5 col-lg-3 pb-5" th:each="spot: ${spots}">
+        <img class="logo center" src="/images/wufflogo2.jpg" width="400" height="200">
+    </div>
+    <div class="row">
+        <div class="navbar2 col-sm-12">
+            <div th:replace="navbar.html :: navbar">...</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="spot-card col col-sm-6 col-md-5 col-lg-3 pb-5" th:each="spot: ${spots}">
             <div class="card spot-pictures">
                 <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff" th:attr="src='/images/spot_' + ${spot.getId()} + '.jpg'" alt="wuff" />
                 <div class="card-header">

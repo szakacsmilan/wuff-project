@@ -21,6 +21,13 @@ public class Spot {
     private String description;
     private String map;
     private Long likeNum;
-//    private List<String> comments = new ArrayList<>();
 
+    @ElementCollection
+    @Singular
+    private List<String> comments = new ArrayList<>();
+
+
+    public void addComment(String comment){
+        this.comments.add(comment);
+    }
 }

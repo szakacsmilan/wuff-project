@@ -17,29 +17,33 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/spot.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
 
 </head>
 <body>
-
+<div class="container">
+<div class="row">
+    <img class="logo center" src="/images/wufflogo2.jpg" width="400" height="200">
+</div>
 <div th:replace="navbar.html :: navbar">...</div>
-
 <div class="row no-gutters map-card">
-    <div class="col-12 headline">
+    <div class="col-6 headline">
         <h1 th:text="${spot.getAddress()}">VAU</h1>
     </div>
-
-    <div class="col-12 col-sm-6 col-md-8 map-card2">
+    <div class="row">
+    <div class="map-card2">
         <p th:text="${spot.getDescription()}">Description</p>
         <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff"
              th:attr="src='/images/spot_' + ${spot.getId()} + '.jpg'" alt="wuff"/>
     </div>
-
-    <div class="map col-6 col-md-4">
+    <div class="map-card3">
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10779.473329179453!2d19.0658874378662!3d47.51195536882004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741db80afd8e9b1%3A0x757db90f482bea97!2sV%C3%A1rosliget!5e0!3m2!1shu!2shu!4v1554987976042!5m2!1shu!2shu"
-                    th:src="'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + ${spot.getMap()}" width="600"
-                    height="600" frameborder="0" style="border:3px"
+            <iframe class="map-pic" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10779.473329179453!2d19.0658874378662!3d47.51195536882004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741db80afd8e9b1%3A0x757db90f482bea97!2sV%C3%A1rosliget!5e0!3m2!1shu!2shu!4v1554987976042!5m2!1shu!2shu"
+                    th:src="'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + ${spot.getMap()}"
+                     frameborder="0" style="border:3px"
                     allowfullscreen></iframe>
+        </div>
         </div>
     </div>
     <div class="col-12 comment">
@@ -62,6 +66,7 @@
             </ul>
         </div>
     </div>
+</div>
 </div>
 
 </body>

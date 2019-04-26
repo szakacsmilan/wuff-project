@@ -115,3 +115,8 @@ body {
     padding-top: 18px;
     padding-bottom: 5px;
 }
+
+.thumbnail-img {
+    height: 300px;
+    width: 450px;
+}

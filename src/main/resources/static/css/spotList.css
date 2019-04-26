@@ -42,7 +42,7 @@ body {
 }
 
 .list-card {
-    background-color: rgba(203,187,163,0.95);
+    margin-left: 0px;
 }
 
 .spot-pictures {
@@ -66,4 +66,6 @@ a {
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-radius: 15px;
+    background-color: rgba(203,187,163,0.95);
+    margin-left: -15px;
 }

@@ -8,9 +8,7 @@
     margin-left: 40px;
 }
 
-.thumbnail-img{
-    height: 300px;
-}
+
 
 body {
     background: url("/images/dogpawbackground.png");
@@ -31,4 +29,12 @@ body {
 
 .adressbox {
     display: inline;
+}
+
+.map-pic {
+
+}
+
+.map-card2 {
+    padding-left: 30px;
 }

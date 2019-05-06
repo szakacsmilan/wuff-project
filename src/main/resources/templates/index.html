@@ -10,18 +10,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css"/>
+
 
 </head>
 <body>
-
-<div th:replace="navbar.html :: navbar">...</div>
 
 <div class="container">
     <div class="row">
         <img class="logo center" src="/images/wufflogo2.jpg" width="400" height="200">
     </div>
     <div class="row">
-        <div class="tweet col-sm-5">
+        <div class="navbar2 col-sm-12">
+    <div th:replace="navbar.html :: navbar">...</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="tweet col-sm-6">
             <div class="twt-wrapper">
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -52,10 +57,23 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-1"></div>
-        <div class=" col-sm-5">
-            <div class="map-pict col-sm-11">
+        <div class=" col-sm-6">
+            <div class="tweet tweet-map col-sm-12">
+                <div class="pct-wrapper">
+                    <div class="panel panel-info">
+                        <div class="map-panel-heading">
+                            <p class="spot-map-text">Spot map</p>
+                        </div>
+                        <div class="arrow">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <a href="/spot/list">
                 <img class="map-pic2" src="/images/map.jpg">
+                        </a>
+                </div>
+                </div>
             </div>
         </div>
     </div>

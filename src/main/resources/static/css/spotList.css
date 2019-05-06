@@ -1,11 +1,71 @@
 .thumbnail-img {
-    height: 300px;
-}
+    height: 90px;
+    width: 130px;
+    border-radius: 10px;
+    display: inline;
+    margin-right: 15px;
 
-.container{
-    margin-top: 50px;
 }
 
 body {
     background: url("/images/dogpawbackground.png");
+}
+
+.btn {
+    background-color: rgba(89,94,99,0.95);
+}
+
+.col-sm-6 {
+    background-color: rgba(203,187,163,0.95);
+    border-radius: 10px;
+    margin: 10px;
+
+}
+
+.spot-pictures {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+
+.spot-card {
+    width: 200px;
+
+}
+
+.logo {
+    border-radius: 10px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.list-card {
+    margin-left: 0px;
+}
+
+.spot-pictures {
+    background-color: rgba(203,187,163,0.95);
+}
+
+hr {
+    border-width: 3px ;
+}
+
+h5 {
+    vertical-align: top;
+}
+
+a {
+    color: rgba(82,87,93,0.95);
+}
+
+.container-wrapper {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    background-color: rgba(203,187,163,0.95);
+    margin-left: -15px;
 }

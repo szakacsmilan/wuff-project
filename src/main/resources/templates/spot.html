@@ -46,7 +46,7 @@
         </div>
         </div>
     </div>
-    <div class="col-12 comment">
+    <div class="col-8 comment">
         <div class="panel-body">
             <form action="#" th:action="'/spot/'+ ${spot.getId() + '/comment'}" method="post">
                 <textarea class="form-control" id="comment" name="comment" placeholder="Enter here for bark..." rows="3"></textarea>
@@ -55,7 +55,6 @@
             <br>
             <ul class="media-list">
                 <div th:each="comment: ${spot.getComments()}">
-                    <hr>
                     <li class="media">
                         <div class="media-body">
                             <p th:text="${comment}"></p>

@@ -76,7 +76,7 @@ public class WuffProjectApplicationTests {
     @Test
     public void testAddNewDog(){
         Dog lajos = Dog.builder()
-                .keeperName("Lajos")
+                .ownerName("Lajos")
                 .build();
 
         dogRepository.save(lajos);

@@ -25,17 +25,10 @@ public class Dog {
 
     private String name;
     private String breed;
-    private String keeperName;
+    private String ownerName;
     private LocalDate birthDate;
     private String email;
     private String password;
+    private String picture;
 
-    @Transient
-    private long age;
-
-    public void calculateAge(){
-        if(birthDate != null){
-            age = ChronoUnit.YEARS.between(birthDate, LocalDate.now());
-        }
-    }
 }

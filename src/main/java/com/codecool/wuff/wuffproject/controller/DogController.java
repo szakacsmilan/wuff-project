@@ -20,6 +20,16 @@ public class DogController {
 
     @PostMapping("/registration")
     public String registration(@RequestParam("email") String email, @RequestParam("password1") String password1, @RequestParam("password2") String password2, @RequestParam("dogName") String dogName, @RequestParam("ownerName") String ownerName){
+
+        if (password1.equals(password2)){
+            Dog dog = Dog.builder()
+                    .email(email)
+                    .password(password1)
+                    .name(dogName)
+                    .ownerName(ownerName)
+                    .build();
+            dogRepository.save(dog);
+        }
         return "redirect:/index";
     }
 }

@@ -10,13 +10,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @SpringBootApplication
-public class WuffProjectApplication{
+public class WuffProjectApplication {
 
     @Autowired
     private SpotRepository spotRepository;
@@ -61,12 +59,12 @@ public class WuffProjectApplication{
 
             Newsfeed newsfeed1 = Newsfeed.builder()
                     .comment("Anybody available from 2pm today? I'm gonna go to Népliget.")
-                    .birthDate(LocalDateTime.of(2019,4,20,4,19))
+                    .birthDate(LocalDateTime.of(2019, 4, 20, 4, 19))
                     .build();
 
             Newsfeed newsfeed2 = Newsfeed.builder()
                     .comment("Hello.Which dogfoood is the best?")
-                    .birthDate(LocalDateTime.of(2019,4,20,4,20))
+                    .birthDate(LocalDateTime.of(2019, 4, 20, 4, 20))
                     .build();
 
             newsFeedRepository.saveAll(Lists.newArrayList(newsfeed1, newsfeed2));

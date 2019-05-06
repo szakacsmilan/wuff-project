@@ -120,3 +120,11 @@ body {
     height: 300px;
     width: 450px;
 }
+
+.sign-up {
+    color: blue;
+}
+
+.forgot-password {
+    color: blue;
+}

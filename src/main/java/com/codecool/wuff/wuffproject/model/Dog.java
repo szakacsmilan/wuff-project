@@ -27,6 +27,8 @@ public class Dog {
     private String breed;
     private String keeperName;
     private LocalDate birthDate;
+    private String email;
+    private String password;
 
     @Transient
     private long age;

@@ -2,20 +2,21 @@ body {
     background: url("/images/dogpawbackground.png");
 }
 
-.map-card {
+
+.map-card {;
     background-color: rgba(223,216,200,0.95);
     border-radius: 10px;
-
 }
 
 .tweet {
     background-color: rgba(223,216,200,0.95);
     border-radius: 10px;
+    margin-top: 10px;
 }
 
 .media-list {
     background-color: rgba(235,235,235,0.95);
-    margin: 10px;
+
     border-radius: 10px;
 }
 
@@ -28,7 +29,7 @@ body {
 }
 
 .panel-heading {
-    margin: 20px;
+
     font-size: 24px;
     font-weight: bold;
     color: rgba(82,87,93,0.95);
@@ -41,16 +42,81 @@ body {
 
 
 .img-circle {
-    margin-right: 20px;
+
 }
 
 .map-pic2 {
-    margin-top: 30px;
+
+    height: 100%;
+    width: 100%;
+    padding-bottom: 30px;
     border-radius: 10px;
-    object-fit: contain;
-    height: 600px;
+
+
 }
-.map-pict{
-    padding-right: 300px;
-    width: 1000px;
+
+.map-panel-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(82,87,93,0.95);
+    text-align: center;
+}
+
+.arrow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid rgba(91,96,101,0.95);
+    border-right: 5px solid rgba(91,96,101,0.95);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
+}
+
+
+.row {
+
+}
+
+.navbar2 {
+    padding-left: 0px;
+}
+
+.panel-heading {
+    margin: 5%;
+}
+
+.spot-map-text {
+    padding-top: 18px;
+    padding-bottom: 5px;
+}
+
+.thumbnail-img {
+    height: 300px;
+    width: 450px;
 }

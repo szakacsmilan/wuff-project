@@ -3,6 +3,7 @@ package com.codecool.wuff.wuffproject.controller;
 import com.codecool.wuff.wuffproject.model.Newsfeed;
 import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class IndexController {
 
     @GetMapping("/index")
     public String newsFeed(Model model) {
-        model.addAttribute("comments", newsFeedRepository.findAll());
+        model.addAttribute("comments", newsFeedRepository.findAll(new Sort(Sort.Direction.DESC,"birthDate")));
         return "index";
     }
 

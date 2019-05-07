@@ -9,6 +9,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/javascript/index.js" defer></script>
     <link rel="stylesheet" type="text/css" href="/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="/css/navbar.css"/>
 
@@ -131,23 +132,23 @@
                 <form action="/registration" method="post">
                     <div class="form-group">
                         <label for="exampleDropdownFormEmail1">Email address</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="email@example.com">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="email@example.com" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleDropdownFormPassword1">Password</label>
-                        <input type="password" class="form-control" name="password1" id="password1" placeholder="Password">
+                        <input type="password" class="form-control" name="password1" id="password1" placeholder="Password" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleDropdownFormPassword1">Confirm Password</label>
-                        <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm your password">
+                        <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm your password" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleDropdownFormEmail1">Dog name</label>
-                        <input type="text" class="form-control" name="dogName" id="dogName" placeholder="Dog name">
+                        <input type="text" class="form-control" name="dogName" id="dogName" placeholder="Dog name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleDropdownFormEmail1">Owner name</label>
-                        <input type="text" class="form-control" name="ownerName" id="ownerName" placeholder="Owner's name">
+                        <input type="text" class="form-control" name="ownerName" id="ownerName" placeholder="Owner's name" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Sign up</button>
                 </form>

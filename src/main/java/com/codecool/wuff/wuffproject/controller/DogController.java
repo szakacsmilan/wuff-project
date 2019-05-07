@@ -19,7 +19,7 @@ public class DogController {
     private DogRepository dogRepository;
 
     @PostMapping("/registration")
-    public String registration(@RequestParam("email") String email, @RequestParam("password1") String password1, @RequestParam("password2") String password2, @RequestParam("dogName") String dogName, @RequestParam("ownerName") String ownerName){
+    public String registration(Model model, @RequestParam("email") String email, @RequestParam("password1") String password1, @RequestParam("password2") String password2, @RequestParam("dogName") String dogName, @RequestParam("ownerName") String ownerName){
 
         if (password1.equals(password2)){
             Dog dog = Dog.builder()
@@ -30,6 +30,7 @@ public class DogController {
                     .build();
             dogRepository.save(dog);
         }
+        model.addAttribute("exception", "Passwords are not matching");
         return "redirect:/index";
     }
 }

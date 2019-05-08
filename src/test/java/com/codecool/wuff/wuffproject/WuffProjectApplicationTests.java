@@ -1,7 +1,9 @@
 package com.codecool.wuff.wuffproject;
 
+import com.codecool.wuff.wuffproject.model.Dog;
 import com.codecool.wuff.wuffproject.model.Newsfeed;
 import com.codecool.wuff.wuffproject.model.Spot;
+import com.codecool.wuff.wuffproject.repository.DogRepository;
 import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
 import com.codecool.wuff.wuffproject.repository.SpotRepository;
 import org.junit.Test;
@@ -19,6 +21,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class WuffProjectApplicationTests {
+
+    @Autowired
+    private DogRepository dogRepository;
 
     @Autowired
     private SpotRepository spotRepository;
@@ -65,5 +70,16 @@ public class WuffProjectApplicationTests {
         newsFeedRepository.save(newsfeed);
         assertThat(newsFeedRepository.findAll()).hasSize(3);
 
+    }
+
+
+    @Test
+    public void testAddNewDog(){
+        Dog lajos = Dog.builder()
+                .ownerName("Lajos")
+                .build();
+
+        dogRepository.save(lajos);
+        assertThat(dogRepository.findAll()).hasSize(1);
     }
 }

@@ -28,47 +28,64 @@
     </div>
     <div th:replace="navbar.html :: navbar">...</div>
     <div class="row no-gutters map-card">
-        <form>
-            <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" th:value="${user.getEmail()}">
-                </div>
-            </div>
+        <form action="/profile/update" method="post">
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type=text class="form-control" id="name" th:value="${user.getName()}">
+                    <input type=text class="form-control" id="name" name="name" th:value="${user.getName()}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="ownerName" class="col-sm-2 col-form-label">Owner name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="ownerName" th:value="${user.getOwnerName()}">
+                    <input type="text" class="form-control" id="ownerName" name="ownerName"th:value="${user.getOwnerName()}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email" th:value="${user.getEmail()}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="breed" class="col-sm-2 col-form-label">Breed</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="breed" th:value="${user.getBreed()}">
+                    <input type="text" class="form-control" id="breed" name="breed" th:value="${user.getBreed()}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="birthDate" class="col-sm-2 col-form-label">Birth date</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" id="birthDate" th:value="${user.getBirthDate()}">
+                    <input type="date" class="form-control" id="birthDate" name="birthDate" th:value="${user.getBirthDate()}">
                 </div>
             </div>
-
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Update
+            </button>
+            <!--Modal for save the datas-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure that you want to save your changes?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
-        <!--<p th:text="${user.getPicture()}"></p>-->
-        <!--<p th:text="${user.getName()}"></p>-->
-        <!--<p th:text="${user.getBreed()}"></p>-->
-        <!--<p th:text="${user.getOwnerName()}"></p>-->
-        <!--<p th:text="${user.getBirthDate()}"></p>-->
-        <!--<p th:text="${user.getEmail()}"></p>-->
-    </div>
 </div>
+
+
 
 </body>
 </html>

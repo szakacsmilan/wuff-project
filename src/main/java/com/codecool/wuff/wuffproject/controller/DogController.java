@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping
@@ -62,14 +64,38 @@ public class DogController {
 
     @GetMapping("/profile")
     public String profile(Model model, HttpServletRequest request){
+        Dog user = dogInTheSession(request);
+        model.addAttribute("user", user);
+        return "profile";
+    }
+
+    @PostMapping("/profile/update")
+    public String update(@RequestParam("name") String name,@RequestParam("ownerName") String ownerName, @RequestParam("email") String email, @RequestParam("breed") String breed, @RequestParam("birthDate") String birthDate, HttpServletRequest request){
+        Dog user = dogInTheSession(request);
+        user.setName(name);
+        user.setOwnerName(ownerName);
+        user.setEmail(email);
+        user.setBreed(breed);
+        String[] bDate = birthDate.split("-");
+        int year = Integer.parseInt(bDate[0]);
+        int month = Integer.parseInt(bDate[1]);
+        int day = Integer.parseInt(bDate[2]);
+        user.setBirthDate(LocalDate.of(year,month,day));
+        dogRepository.save(user);
+        return "redirect:/profile";
+    }
+
+    private Dog dogInTheSession( HttpServletRequest request){
         Dog user = null;
         HttpSession session = request.getSession(true);
         for (Dog dog: dogRepository.findAll()) {
             if (dog.getEmail().equals(session.getAttribute("email"))){
                 user = dog;
+                break;
             }
         }
-        model.addAttribute("user", user);
-        return "profile";
+        return user;
     }
+
+
 }

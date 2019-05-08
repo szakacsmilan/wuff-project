@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping
 public class DogController {
@@ -19,7 +21,7 @@ public class DogController {
     private DogRepository dogRepository;
 
     @PostMapping("/registration")
-    public String registration(Model model, @RequestParam("email") String email, @RequestParam("password1") String password1, @RequestParam("password2") String password2, @RequestParam("dogName") String dogName, @RequestParam("ownerName") String ownerName){
+    public String registration(Model model, @Valid @RequestParam("email") String email, @Valid @RequestParam("password1") String password1, @Valid @RequestParam("password2") String password2, @Valid @RequestParam("dogName") String dogName, @Valid @RequestParam("ownerName") String ownerName){
 
         if (password1.equals(password2)){
             Dog dog = Dog.builder()
@@ -28,7 +30,7 @@ public class DogController {
                     .name(dogName)
                     .ownerName(ownerName)
                     .build();
-            dogRepository.save(dog);
+            dogRepository.save( dog);
         }
         model.addAttribute("exception", "Passwords are not matching");
         return "redirect:/index";

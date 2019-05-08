@@ -1,14 +1,15 @@
-console.log("malac");
 
-Validate();
+var password = document.getElementById('password1');
+var confirmPassword = document.getElementById('password2');
 
-function Validate() {
-    console.log("malacka");
-    var password = document.getElementById("password1").value;
-    var confirmPassword = document.getElementById("password2").value;
-    if (password != confirmPassword) {
-        alert("Passwords do not match.");
-        return false;
+
+function check() {
+    if (password.value != confirmPassword.value)  {
+        confirmPassword.setCustomValidity("Passwords Don't Match");
+    } else {
+        confirmPassword.setCustomValidity(" ");
     }
-    return true;
 }
+
+password.onchange = check;
+password.onkeyup = check;

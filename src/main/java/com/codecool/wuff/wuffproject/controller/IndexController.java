@@ -35,4 +35,6 @@ public class IndexController {
         newsFeedRepository.save(newsFeed);
         return "redirect:/index";
     }
+
+
 }

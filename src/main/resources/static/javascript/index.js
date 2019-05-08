@@ -4,12 +4,9 @@ var confirmPassword = document.getElementById('password2');
 
 
 function check() {
-    if (password.value != confirmPassword.value)  {
-        confirmPassword.setCustomValidity("Passwords Don't Match");
+    if (password.value === confirmPassword.value)  {
+        document.getElementById('submitbutt').click();
     } else {
-        confirmPassword.setCustomValidity(" ");
+        confirmPassword.setCustomValidity("Passwords Don't Match");
     }
 }
-
-password.onchange = check;
-password.onkeyup = check;

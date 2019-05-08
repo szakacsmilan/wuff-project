@@ -26,8 +26,13 @@
                 </button>
             </div>
             <div th:case="true">
-                <span class="navbar-brand">Hello </span>
-                <span class="navbar-brand" th:text="${session.email}">Hi User!</span>
+                <form action="/logout" method="post">
+                    <span class="navbar-brand">Hello</span>
+                    <span class="navbar-brand" th:text="${session.email} + '!'">Hi User!</span>
+                    <button type="submit" class="btn btn-primary" >
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
         <!--<span th:switch="${session.loggedIn}">-->

@@ -52,4 +52,11 @@ public class DogController {
         session.setAttribute("email", userEmail);
         return "redirect:/index";
     }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession(true);
+        session.setAttribute("loggedIn", false);
+        return "redirect:/index";
+    }
 }

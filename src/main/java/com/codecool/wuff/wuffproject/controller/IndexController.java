@@ -32,12 +32,9 @@ public class IndexController {
             session.setAttribute("loggedIn", false);
         }
 
-        System.out.println(session.getAttribute("loggedIn"));
-        System.out.println(session.getAttribute("email"));
+//        System.out.println(session.getAttribute("loggedIn"));
+//        System.out.println(session.getAttribute("email"));
 
-        //model.addAttribute("email", session.getAttribute("email").toString());
-
-        //model.addAttribute("name", dogRepository.findById());
         model.addAttribute("comments", newsFeedRepository.findAll(new Sort(Sort.Direction.DESC,"birthDate")));
         return "index";
     }

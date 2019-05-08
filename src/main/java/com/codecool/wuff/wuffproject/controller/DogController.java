@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping
 public class DogController {
@@ -54,6 +57,29 @@ public class DogController {
 
 
         }
+        return "redirect:/index";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam("email") String email, @RequestParam("password1") String password, HttpServletRequest request){
+        boolean loggedIn = false;
+        String userEmail = "";
+        for (Dog dog: dogRepository.findAll()) {
+            if(dog.getEmail().equals(email) && dog.getPassword().equals(password)){
+                loggedIn = true;
+                userEmail = dog.getEmail();
+            }
+        }
+        HttpSession session = request.getSession(true);
+        session.setAttribute("loggedIn", loggedIn);
+        session.setAttribute("email", userEmail);
+        return "redirect:/index";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession(true);
+        session.setAttribute("loggedIn", false);
         return "redirect:/index";
     }
 }

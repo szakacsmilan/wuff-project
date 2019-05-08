@@ -59,4 +59,17 @@ public class DogController {
         session.setAttribute("loggedIn", false);
         return "redirect:/index";
     }
+
+    @GetMapping("/profile")
+    public String profile(Model model, HttpServletRequest request){
+        Dog user = null;
+        HttpSession session = request.getSession(true);
+        for (Dog dog: dogRepository.findAll()) {
+            if (dog.getEmail().equals(session.getAttribute("email"))){
+                user = dog;
+            }
+        }
+        model.addAttribute("user", user);
+        return "profile";
+    }
 }

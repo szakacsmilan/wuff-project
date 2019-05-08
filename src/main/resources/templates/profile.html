@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Codecool"/>
+
+    <title>Wuff</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/spot.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <img class="logo center" src="/images/wufflogo2.jpg" width="400" height="200">
+    </div>
+    <div th:replace="navbar.html :: navbar">...</div>
+    <div class="row no-gutters map-card">
+        <form>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" th:value="${user.getEmail()}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type=text class="form-control" id="name" th:value="${user.getName()}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="ownerName" class="col-sm-2 col-form-label">Owner name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ownerName" th:value="${user.getOwnerName()}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="breed" class="col-sm-2 col-form-label">Breed</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="breed" th:value="${user.getBreed()}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="birthDate" class="col-sm-2 col-form-label">Birth date</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="birthDate" th:value="${user.getBirthDate()}">
+                </div>
+            </div>
+
+        </form>
+        <!--<p th:text="${user.getPicture()}"></p>-->
+        <!--<p th:text="${user.getName()}"></p>-->
+        <!--<p th:text="${user.getBreed()}"></p>-->
+        <!--<p th:text="${user.getOwnerName()}"></p>-->
+        <!--<p th:text="${user.getBirthDate()}"></p>-->
+        <!--<p th:text="${user.getEmail()}"></p>-->
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,7 +1,9 @@
 package com.codecool.wuff.wuffproject;
 
+import com.codecool.wuff.wuffproject.model.Dog;
 import com.codecool.wuff.wuffproject.model.Newsfeed;
 import com.codecool.wuff.wuffproject.model.Spot;
+import com.codecool.wuff.wuffproject.repository.DogRepository;
 import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
 import com.codecool.wuff.wuffproject.repository.SpotRepository;
 import org.assertj.core.util.Lists;
@@ -20,6 +22,8 @@ public class WuffProjectApplication {
     private SpotRepository spotRepository;
     @Autowired
     private NewsFeedRepository newsFeedRepository;
+    @Autowired
+    private DogRepository dogRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(WuffProjectApplication.class, args);
@@ -69,6 +73,12 @@ public class WuffProjectApplication {
 
             newsFeedRepository.saveAll(Lists.newArrayList(newsfeed1, newsfeed2));
 
+            Dog testUser = Dog.builder()
+                    .email("a@a")
+                    .password("aaa")
+                    .build();
+
+            dogRepository.save(testUser);
 
         };
     }

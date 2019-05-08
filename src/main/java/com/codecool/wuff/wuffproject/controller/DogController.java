@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping
 public class DogController {
@@ -31,6 +34,22 @@ public class DogController {
             dogRepository.save(dog);
         }
         model.addAttribute("exception", "Passwords are not matching");
+        return "redirect:/index";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam("email") String email, @RequestParam("password1") String password, HttpServletRequest request){
+        boolean loggedIn = false;
+        Long dogId = 0L;
+        for (Dog dog: dogRepository.findAll()) {
+            if(dog.getEmail().equals(email) && dog.getPassword().equals(password)){
+                loggedIn = true;
+                dogId = dog.getId();
+            }
+        }
+        HttpSession session = request.getSession(true);
+        session.setAttribute("loggedIn", loggedIn);
+        session.setAttribute("dogId", dogId);
         return "redirect:/index";
     }
 }

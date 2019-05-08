@@ -1,6 +1,7 @@
 package com.codecool.wuff.wuffproject.controller;
 
 import com.codecool.wuff.wuffproject.model.Newsfeed;
+import com.codecool.wuff.wuffproject.repository.DogRepository;
 import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 
 @Controller
@@ -19,9 +22,17 @@ public class IndexController {
 
     @Autowired
     private NewsFeedRepository newsFeedRepository;
+    @Autowired
+    private DogRepository dogRepository;
 
     @GetMapping("/index")
-    public String newsFeed(Model model) {
+    public String newsFeed(Model model, HttpServletRequest request) {
+        HttpSession session =  request.getSession(true);
+        if(session.getAttribute("loggedIn") != null) {
+            String dogId = session.getAttribute("loggedIn").toString();
+            System.out.println(dogId);
+        }
+        //model.addAttribute("name", dogRepository.findById());
         model.addAttribute("comments", newsFeedRepository.findAll(new Sort(Sort.Direction.DESC,"birthDate")));
         return "index";
     }

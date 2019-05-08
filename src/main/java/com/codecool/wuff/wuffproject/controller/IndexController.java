@@ -28,10 +28,15 @@ public class IndexController {
     @GetMapping("/index")
     public String newsFeed(Model model, HttpServletRequest request) {
         HttpSession session =  request.getSession(true);
-        if(session.getAttribute("loggedIn") != null) {
-            String dogId = session.getAttribute("loggedIn").toString();
-            System.out.println(dogId);
+        if(session.getAttribute("loggedIn") == null) {
+            session.setAttribute("loggedIn", false);
         }
+
+        System.out.println(session.getAttribute("loggedIn"));
+        System.out.println(session.getAttribute("email"));
+
+        //model.addAttribute("email", session.getAttribute("email").toString());
+
         //model.addAttribute("name", dogRepository.findById());
         model.addAttribute("comments", newsFeedRepository.findAll(new Sort(Sort.Direction.DESC,"birthDate")));
         return "index";

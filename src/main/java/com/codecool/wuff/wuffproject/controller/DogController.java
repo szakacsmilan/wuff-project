@@ -40,16 +40,16 @@ public class DogController {
     @PostMapping("/login")
     public String login(@RequestParam("email") String email, @RequestParam("password1") String password, HttpServletRequest request){
         boolean loggedIn = false;
-        Long dogId = 0L;
+        String userEmail = "";
         for (Dog dog: dogRepository.findAll()) {
             if(dog.getEmail().equals(email) && dog.getPassword().equals(password)){
                 loggedIn = true;
-                dogId = dog.getId();
+                userEmail = dog.getEmail();
             }
         }
         HttpSession session = request.getSession(true);
         session.setAttribute("loggedIn", loggedIn);
-        session.setAttribute("dogId", dogId);
+        session.setAttribute("email", userEmail);
         return "redirect:/index";
     }
 }

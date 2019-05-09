@@ -66,21 +66,29 @@ public class DogController {
     public String profile(Model model, HttpServletRequest request){
         Dog user = dogInTheSession(request);
         model.addAttribute("user", user);
+        if(user.getPicture()==null){
+            model.addAttribute("pic", "/images/no_image_available.jpg");
+        }else{
+            model.addAttribute("pic", "/images/" + user.getPicture());
+        }
         return "profile";
     }
 
     @PostMapping("/profile/update")
-    public String update(@RequestParam("name") String name,@RequestParam("ownerName") String ownerName, @RequestParam("email") String email, @RequestParam("breed") String breed, @RequestParam("birthDate") String birthDate, HttpServletRequest request){
+    public String update(@RequestParam("name") String name,@RequestParam("ownerName") String ownerName, @RequestParam("email") String email, @RequestParam("breed") String breed, @RequestParam("birthDate") String birthDate, @RequestParam("pic") String image, HttpServletRequest request){
         Dog user = dogInTheSession(request);
         user.setName(name);
         user.setOwnerName(ownerName);
         user.setEmail(email);
         user.setBreed(breed);
-        String[] bDate = birthDate.split("-");
-        int year = Integer.parseInt(bDate[0]);
-        int month = Integer.parseInt(bDate[1]);
-        int day = Integer.parseInt(bDate[2]);
-        user.setBirthDate(LocalDate.of(year,month,day));
+        user.setPicture(image);
+        if(!(birthDate.equals(""))){
+            String[] bDate = birthDate.split("-");
+            int year = Integer.parseInt(bDate[0]);
+            int month = Integer.parseInt(bDate[1]);
+            int day = Integer.parseInt(bDate[2]);
+            user.setBirthDate(LocalDate.of(year,month,day));
+        }
         dogRepository.save(user);
         return "redirect:/profile";
     }

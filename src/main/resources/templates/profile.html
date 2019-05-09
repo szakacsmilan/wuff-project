@@ -16,9 +16,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" th:href="@{/css/spot.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/profile.css}"/>
 
 </head>
 <body>
@@ -28,42 +27,51 @@
     </div>
     <div th:replace="navbar.html :: navbar">...</div>
     <div class="row no-gutters map-card">
-        <form action="/profile/update" method="post">
-            <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">Name</label>
-                <div class="col-sm-10">
-                    <input type=text class="form-control" id="name" name="name" th:value="${user.getName()}">
+
+        <form id="profileForm" action="/profile/update" method="post">
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group row">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type=text class="form-control" id="name" name="name" th:value="${user.getName()}">
+                    </div>
+                    <div class="form-group row">
+                        <label for="ownerName" class="col-form-label">Owner name:</label>
+                        <input type="text" class="form-control" id="ownerName" name="ownerName"
+                               th:value="${user.getOwnerName()}">
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" th:value="${user.getEmail()}">
+                    </div>
+                    <div class="form-group row">
+                        <label for="breed" class="col-form-label">Breed:</label>
+                        <input type="text" class="form-control" id="breed" name="breed" th:value="${user.getBreed()}">
+                    </div>
+                    <div class="form-group row">
+                        <label for="birthDate" class="col-form-label">Birth date:</label>
+                        <input type="date" class="form-control" id="birthDate" name="birthDate"
+                               th:value="${user.getBirthDate()}">
+                    </div>
+
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="ownerName" class="col-sm-2 col-form-label">Owner name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="ownerName" name="ownerName"th:value="${user.getOwnerName()}">
+                <div class="col col-sm-1">
+
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" name="email" th:value="${user.getEmail()}">
+                <div class="col col-sm-4" id="profilePicture">
+                    <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff"
+                         th:attr="src=${pic}" alt="wuff"/>
+                    <input type="file" name="pic" id="pic" accept="image/*">
                 </div>
+                <button type="button" class="btn uBtn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Update
+                </button>
             </div>
-            <div class="form-group row">
-                <label for="breed" class="col-sm-2 col-form-label">Breed</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="breed" name="breed" th:value="${user.getBreed()}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="birthDate" class="col-sm-2 col-form-label">Birth date</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" id="birthDate" name="birthDate" th:value="${user.getBirthDate()}">
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Update
-            </button>
+
             <!--Modal for save the datas-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -73,7 +81,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            Are you sure that you want to save your changes?
+                            Are you sure you want to save your changes?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -83,8 +91,8 @@
                 </div>
             </div>
         </form>
-</div>
 
+    </div>
 
 
 </body>

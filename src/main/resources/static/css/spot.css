@@ -16,10 +16,12 @@ body {
 }
 
 .map-card {
+    margin-top: 10px;
     background-color: rgba(223,216,200,0.95);
 }
 
 .map-card2{
+    margin-left: 30px;
     background-color: rgba(255,255,255,0.45);
     border-radius: 20px;
 }
@@ -31,8 +33,10 @@ body {
 
 .map-pic {
 
-    height: 350px;
-    width: 350px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 15px;
 }
 
 .map-card2 {
@@ -46,4 +50,22 @@ body {
 
 .comment {
     margin: 30px;
+}
+
+.thumbnail-img {
+    margin-top: 20px;
+    display: inline-block;
+    margin-left: 40px;
+    border-radius: 15px;
+}
+
+.description {
+    margin-top: 20px;
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.map {
+    width: 450px;
+    height: 300px;
 }

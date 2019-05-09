@@ -1,0 +1,53 @@
+body {
+    background: url("/images/dogpawbackground.png");
+}
+
+.logo {
+    border-radius: 10px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.map-card{
+    padding: 30px;
+    margin-top: 10px;
+    background-color: rgba(223,216,200,0.95);
+    border-radius: 10px;
+}
+
+.from-control{
+    margin-bottom: 10px;
+}
+
+#profileForm{
+    padding-left: 5%;
+    width: 90%;
+}
+
+.col-sm-6{
+    max-width: 100%;
+}
+
+#pic{
+    margin-left: 10px;
+}
+
+#profilePicture{
+    padding-top: 5%
+}
+
+.thumbnail-img{
+    max-width: 450px;
+    max-height: 400px;
+}
+
+.btn {
+    background-color: rgba(89,94,99,0.95);
+    text-align: center;
+}
+
+.uBtn{
+    margin-left: 50%;
+}

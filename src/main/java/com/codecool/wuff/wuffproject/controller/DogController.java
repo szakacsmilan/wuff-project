@@ -19,6 +19,8 @@ import javax.validation.Valid;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping
@@ -82,4 +84,51 @@ public class DogController {
         session.setAttribute("loggedIn", false);
         return "redirect:/index";
     }
+
+    @GetMapping("/profile")
+    public String profile(Model model, HttpServletRequest request){
+        Dog user = dogInTheSession(request);
+        model.addAttribute("user", user);
+        if(user.getPicture()==null){
+            model.addAttribute("pic", "/images/no_image_available.jpg");
+        }else{
+            model.addAttribute("pic", "/images/" + user.getPicture());
+        }
+        return "profile";
+    }
+
+    @PostMapping("/profile/update")
+    public String update(@RequestParam("name") String name,@RequestParam("ownerName") String ownerName, @RequestParam("breed") String breed, @RequestParam("birthDate") String birthDate, @RequestParam("pic") String image, HttpServletRequest request){
+        Dog user = dogInTheSession(request);
+        user.setName(name);
+        user.setOwnerName(ownerName);
+        user.setBreed(breed);
+        System.out.println(image + "vau");
+        if(!(image.equals(""))){
+            user.setPicture(image);
+        }
+        if(!(birthDate.equals(""))){
+            String[] bDate = birthDate.split("-");
+            int year = Integer.parseInt(bDate[0]);
+            int month = Integer.parseInt(bDate[1]);
+            int day = Integer.parseInt(bDate[2]);
+            user.setBirthDate(LocalDate.of(year,month,day));
+        }
+        dogRepository.save(user);
+        return "redirect:/profile";
+    }
+
+    private Dog dogInTheSession( HttpServletRequest request){
+        Dog user = null;
+        HttpSession session = request.getSession(true);
+        for (Dog dog: dogRepository.findAll()) {
+            if (dog.getEmail().equals(session.getAttribute("email"))){
+                user = dog;
+                break;
+            }
+        }
+        return user;
+    }
+
+
 }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Codecool"/>
+
+    <title>Wuff</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/profile.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <img class="logo center" src="/images/wufflogo2.jpg" width="400" height="200">
+    </div>
+    <div th:replace="navbar.html :: navbar">...</div>
+    <div class="row no-gutters map-card">
+
+        <form id="profileForm" action="/profile/update" method="post">
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group row">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type=text class="form-control" id="name" name="name" th:value="${user.getName()}">
+                    </div>
+                    <div class="form-group row">
+                        <label for="ownerName" class="col-form-label">Owner name:</label>
+                        <input type="text" class="form-control" id="ownerName" name="ownerName"
+                               th:value="${user.getOwnerName()}">
+                    </div>
+                    <div class="form-group row">
+                        <label for="breed" class="col-form-label">Breed:</label>
+                        <input type="text" class="form-control" id="breed" name="breed" th:value="${user.getBreed()}">
+                    </div>
+                    <div class="form-group row">
+                        <label for="birthDate" class="col-form-label">Birth date:</label>
+                        <input type="date" class="form-control" id="birthDate" name="birthDate"
+                               th:value="${user.getBirthDate()}">
+                    </div>
+
+                </div>
+                <div class="col col-sm-1">
+
+                </div>
+                <div class="col col-sm-4" id="profilePicture">
+                    <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff"
+                         th:attr="src=${pic}" alt="wuff"/>
+                    <input type="file" name="pic" id="pic" accept="image/*">
+                </div>
+                <button type="button" class="btn uBtn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Update
+                </button>
+            </div>
+
+            <!--Modal for save the datas-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to save your changes?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+</body>
+</html>

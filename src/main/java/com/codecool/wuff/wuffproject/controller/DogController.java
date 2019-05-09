@@ -75,13 +75,15 @@ public class DogController {
     }
 
     @PostMapping("/profile/update")
-    public String update(@RequestParam("name") String name,@RequestParam("ownerName") String ownerName, @RequestParam("email") String email, @RequestParam("breed") String breed, @RequestParam("birthDate") String birthDate, @RequestParam("pic") String image, HttpServletRequest request){
+    public String update(@RequestParam("name") String name,@RequestParam("ownerName") String ownerName, @RequestParam("breed") String breed, @RequestParam("birthDate") String birthDate, @RequestParam("pic") String image, HttpServletRequest request){
         Dog user = dogInTheSession(request);
         user.setName(name);
         user.setOwnerName(ownerName);
-        user.setEmail(email);
         user.setBreed(breed);
-        user.setPicture(image);
+        System.out.println(image + "vau");
+        if(!(image.equals(""))){
+            user.setPicture(image);
+        }
         if(!(birthDate.equals(""))){
             String[] bDate = birthDate.split("-");
             int year = Integer.parseInt(bDate[0]);

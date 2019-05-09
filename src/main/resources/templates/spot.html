@@ -28,25 +28,30 @@
 </div>
 <div th:replace="navbar.html :: navbar">...</div>
 <div class="row no-gutters map-card">
+    <div class="col-6 headline">
+        <h1 th:text="${spot.getAddress()}">VAU</h1>
+        <p th:text="${spot.getDescription()}">Description</p>
+    </div>
     <div class="row">
+    <div class="map-card2">
         <img class="thumbnail-img" src="http://placehold.it/400x250/000/fff"
              th:attr="src='/images/spot_' + ${spot.getId()} + '.jpg'" alt="wuff"/>
-        <div class="description">
-            <h1 th:text="${spot.getAddress()}">VAU</h1>
-            <p th:text="${spot.getDescription()}">Description</p>
-        </div>
+    </div>
+    <div class="map-card3">
         <div class="map">
             <iframe class="map-pic" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10779.473329179453!2d19.0658874378662!3d47.51195536882004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741db80afd8e9b1%3A0x757db90f482bea97!2sV%C3%A1rosliget!5e0!3m2!1shu!2shu!4v1554987976042!5m2!1shu!2shu"
                     th:src="'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d' + ${spot.getMap()}"
                      frameborder="0" style="border:3px"
                     allowfullscreen></iframe>
         </div>
+        </div>
     </div>
+    <div class="col-2"></div>
     <div class="col-8 comment">
         <div class="panel-body">
             <form action="#" th:action="'/spot/'+ ${spot.getId() + '/comment'}" method="post">
                 <textarea class="form-control" id="comment" name="comment" placeholder="Enter here for bark..." rows="3"></textarea>
-                <button type="submit" class="btn btn-default">Create</button>
+                <button type="submit" class="btn btn-default">New comment</button>
             </form>
             <br>
             <ul class="media-list">
@@ -61,6 +66,9 @@
             </ul>
         </div>
     </div>
+
 </div>
+</div>
+
 </body>
 </html>

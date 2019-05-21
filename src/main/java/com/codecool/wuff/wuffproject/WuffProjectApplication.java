@@ -64,11 +64,13 @@ public class WuffProjectApplication {
             Newsfeed newsfeed1 = Newsfeed.builder()
                     .comment("Anybody available from 2pm today? I'm gonna go to Népliget.")
                     .birthDate(LocalDateTime.of(2019, 4, 20, 4, 19))
+                    .userId(7L)
                     .build();
 
             Newsfeed newsfeed2 = Newsfeed.builder()
                     .comment("Hello.Which dogfoood is the best?")
                     .birthDate(LocalDateTime.of(2019, 4, 20, 4, 20))
+                    .userId(7L)
                     .build();
 
             newsFeedRepository.saveAll(Lists.newArrayList(newsfeed1, newsfeed2));

@@ -118,7 +118,7 @@ public class DogController {
         return "redirect:/profile";
     }
 
-    private Dog dogInTheSession( HttpServletRequest request){
+    public Dog dogInTheSession(HttpServletRequest request){
         Dog user = null;
         HttpSession session = request.getSession(true);
         for (Dog dog: dogRepository.findAll()) {

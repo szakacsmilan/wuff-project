@@ -22,5 +22,6 @@ public class Newsfeed {
 
     private String comment;
     private LocalDateTime birthDate;
+    private Long userId;
 
 }

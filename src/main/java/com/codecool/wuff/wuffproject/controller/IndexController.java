@@ -26,8 +26,8 @@ public class IndexController {
     @Autowired
     private DogRepository dogRepository;
 
-    @GetMapping("/index")
-    public String newsFeed(Model model, HttpServletRequest request) {
+    @GetMapping
+    public String indexPage(Model model, HttpServletRequest request) {
         HttpSession session =  request.getSession(true);
         if(session.getAttribute("loggedIn") == null) {
             session.setAttribute("loggedIn", false);
@@ -54,7 +54,7 @@ public class IndexController {
                 .userId(userId)
                 .build();
         newsFeedRepository.save(newsFeed);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 

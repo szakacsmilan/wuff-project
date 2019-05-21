@@ -15,14 +15,14 @@ import java.time.temporal.ChronoUnit;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
+@Builder
 public class Dog {
 
     @Id
     @GeneratedValue
-    private Long id;
 
+    private Long id;
     private String name;
     private String breed;
     private String ownerName;

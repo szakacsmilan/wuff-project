@@ -12,6 +12,8 @@ import static io.restassured.RestAssured.given;
 @SpringBootTest
 public class ControllerTests {
 
+
+    // ---------- IndexController endpoint tests -----------------
     @Test
     public void indexStatusCode200(){
 
@@ -33,7 +35,23 @@ public class ControllerTests {
                 statusCode(302);
     }
 
+    // ---------- DogController endpoint tests -----------------
 
+
+    @Test
+    public void registrationStatusCode302(){
+
+        given().
+                when().
+                param("email", "a@a.com").
+                param("password1", "abcd").
+                param("password2", "abcd").
+                param("dogName", "a").
+                param("ownerName", "a").
+                post("http://localhost:8888/registration").
+                then().
+                statusCode(302);
+    }
 
 
 }

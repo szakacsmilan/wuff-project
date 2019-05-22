@@ -37,7 +37,7 @@ public class IndexController {
         return "index";
     }
 
-    @PostMapping("/index/comment")
+    @PostMapping("/comment")
     public String commentOnNewsFeed(@RequestParam("inComment") String inComment, HttpServletRequest request){
         Long userId = null;
         HttpSession session = request.getSession(true);

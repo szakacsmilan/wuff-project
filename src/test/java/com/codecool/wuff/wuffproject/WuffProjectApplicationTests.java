@@ -10,10 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
 
 
 import java.time.LocalDateTime;
@@ -82,17 +79,6 @@ public class WuffProjectApplicationTests {
 
         dogRepository.save(lajos);
         assertThat(dogRepository.findAll()).hasSize(1);
-    }
-
-    @Test
-    public void indexStatusCode200(){
-
-        given().
-                when().
-                get("http://localhost:8888").
-                then().
-                assertThat().
-                statusCode(200);
     }
 
 }

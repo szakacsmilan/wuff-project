@@ -7,6 +7,8 @@ import com.codecool.wuff.wuffproject.repository.DogRepository;
 import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
 import com.codecool.wuff.wuffproject.repository.SpotRepository;
 import org.assertj.core.util.Lists;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +28,9 @@ public class WuffProjectApplication {
     private DogRepository dogRepository;
 
     public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver" ,  "/Users/milanszakacs/Applications/chromedriver");
         SpringApplication.run(WuffProjectApplication.class, args);
+
     }
 
     @Bean

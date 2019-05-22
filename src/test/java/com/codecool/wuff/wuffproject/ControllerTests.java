@@ -19,8 +19,21 @@ public class ControllerTests {
                 when().
                 get("http://localhost:8888").
                 then().
-                assertThat().
                 statusCode(200);
     }
+
+    @Test
+    public void newsfeedCommentStatusCode302(){
+
+        given().
+                when().
+                param("inComment", "macska").
+                post("http://localhost:8888/comment").
+                then().
+                statusCode(302);
+    }
+
+
+
 
 }

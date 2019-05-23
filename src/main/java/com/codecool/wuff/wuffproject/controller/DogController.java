@@ -115,7 +115,7 @@ public class DogController {
             user.setBirthDate(LocalDate.of(year,month,day));
         }
         dogRepository.save(user);
-        return "redirect:/profile";
+        return "redirect:/profile/2";
     }
 
     public Dog dogInTheSession(HttpServletRequest request){

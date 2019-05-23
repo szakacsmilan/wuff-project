@@ -21,11 +21,12 @@ public class ControllerTests {
                 when().
                 get("http://localhost:8888").
                 then().
+                assertThat().
                 statusCode(200);
     }
 
     @Test
-    public void newsfeedCommentStatusCode302(){
+    public void newsFeedCommentStatusCode302(){
 
         given().
                 when().
@@ -53,5 +54,60 @@ public class ControllerTests {
                 statusCode(302);
     }
 
+    @Test
+    public void loginStatusCode302(){
+
+        given().
+                when().
+                param("email", "a@a.com").
+                param("password1", "aaa").
+                post("http://localhost:8888/login").
+                then().
+                statusCode(302);
+    }
+
+    @Test
+    public void logoutStatusCode302(){
+
+        given().
+                when().
+                post("http://localhost:8888/logout").
+                then().
+                statusCode(302);
+    }
+
+    // ---------- SpotController endpoint tests -----------------
+
+    @Test
+    public void listStatusCode200(){
+
+        given().
+                when().
+                get("http://localhost:8888/spot/list").
+                then().
+                assertThat().
+                statusCode(200);
+    }
+
+    @Test
+    public void spotStatusCode200(){
+
+        given().
+                when().
+                get("http://localhost:8888/spot/2").
+                then().
+                statusCode(200);
+    }
+
+    @Test
+    public void commentOnSpotsStatusCode302(){
+
+        given().
+                when().
+                param("comment", "Szeretem az őszt!").
+                post("http://localhost:8888/spot/2/comment").
+                then().
+                statusCode(302);
+    }
 
 }

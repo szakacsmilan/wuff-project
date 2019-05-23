@@ -50,7 +50,7 @@ public class SeleniumTest {
         Thread.sleep(5000);
         webDriver.findElement(By.id("breed")).sendKeys("Greyhound");
         Thread.sleep(2000);
-        webDriver.findElement(By.id("birthDate")).sendKeys("2013/t0228");
+        webDriver.findElement(By.id("birthDate")).sendKeys("2013\t0228");
         Thread.sleep(4000);
         webDriver.findElement(By.className("updateBtn")).click();
         Thread.sleep(3000);

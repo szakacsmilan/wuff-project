@@ -70,5 +70,83 @@
 </div>
 </div>
 
+<!-- Modal login-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="px-4 py-3" action="/login" method="post">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Password</label>
+                        <input type="password" name="password1" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                            <label class="form-check-label" for="dropdownCheck">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item sign-up" data-toggle="modal" data-target="#registerModalCenter" href="#">Sign up</a>
+                <a class="dropdown-item forgot-password" href="#">Forgot password?</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal registration-->
+<div class="modal fade" id="registerModalCenter" tabindex="-1" role="dialog" aria-labelledby="registerModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalCenterTitle">Login</h5>
+                <button onclick="check()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/registration" method="post">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Email address</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Password</label>
+                        <input type="password" class="form-control" name="password1" id="password1" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Confirm Password</label>
+                        <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Dog name</label>
+                        <input type="text" class="form-control" name="dogName" id="dogName" placeholder="Dog name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Owner name</label>
+                        <input type="text" class="form-control" name="ownerName" id="ownerName" placeholder="Owner's name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitbutt">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 </html>

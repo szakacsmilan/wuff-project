@@ -1,5 +1,6 @@
 package com.codecool.wuff.wuffproject.controller;
 
+import com.codecool.wuff.wuffproject.model.Dog;
 import com.codecool.wuff.wuffproject.model.Newsfeed;
 import com.codecool.wuff.wuffproject.repository.DogRepository;
 import com.codecool.wuff.wuffproject.repository.NewsFeedRepository;
@@ -25,28 +26,35 @@ public class IndexController {
     @Autowired
     private DogRepository dogRepository;
 
-    @GetMapping("/index")
-    public String newsFeed(Model model, HttpServletRequest request) {
+    @GetMapping
+    public String indexPage(Model model, HttpServletRequest request) {
         HttpSession session =  request.getSession(true);
         if(session.getAttribute("loggedIn") == null) {
             session.setAttribute("loggedIn", false);
         }
 
-//        System.out.println(session.getAttribute("loggedIn"));
-//        System.out.println(session.getAttribute("email"));
-
         model.addAttribute("comments", newsFeedRepository.findAll(new Sort(Sort.Direction.DESC,"birthDate")));
         return "index";
     }
 
-    @PostMapping("/index/comment")
-    public String commentOnNewsFeed(@RequestParam("inComment") String inComment){
+    @PostMapping("/comment")
+    public String commentOnNewsFeed(@RequestParam("inComment") String inComment, HttpServletRequest request){
+        Long userId = null;
+        HttpSession session = request.getSession(true);
+        for (Dog dog: dogRepository.findAll()) {
+            if (dog.getEmail().equals(session.getAttribute("email"))){
+                userId = dog.getId();
+                break;
+            }
+        }
+
         Newsfeed newsFeed = Newsfeed.builder()
                 .birthDate(LocalDateTime.now())
                 .comment(inComment)
+                .userId(userId)
                 .build();
         newsFeedRepository.save(newsFeed);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 

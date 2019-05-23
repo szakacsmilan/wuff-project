@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface NewsFeedRepository  extends JpaRepository<Newsfeed, Long> {
-//     List<Newsfeed> findAllOrderByIdAsc();
+
 }

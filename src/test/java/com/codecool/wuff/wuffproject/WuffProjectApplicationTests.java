@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -32,7 +32,7 @@ public class WuffProjectApplicationTests {
     private NewsFeedRepository newsFeedRepository;
 
     @Test
-    public void testAddNewSpot(){
+    public void testAddSpot(){
         Spot spot = Spot.builder()
                 .address("Vauuu")
                 .description("kiskutya")
@@ -46,7 +46,7 @@ public class WuffProjectApplicationTests {
 
 
     @Test
-    public void testAddNewComment(){
+    public void testAddCommentToSpot(){
 
         for (Spot spot: spotRepository.findAll()) {
             if(spot.getId() == 1){
@@ -61,7 +61,7 @@ public class WuffProjectApplicationTests {
     }
 
     @Test
-    public void testAddNewsFeed(){
+    public void testAddFeed(){
         Newsfeed newsfeed = Newsfeed.builder()
                 .comment("asd")
                 .birthDate(LocalDateTime.now())
@@ -71,10 +71,8 @@ public class WuffProjectApplicationTests {
         assertThat(newsFeedRepository.findAll()).hasSize(3);
 
     }
-
-
     @Test
-    public void testAddNewDog(){
+    public void testAddDog(){
         Dog lajos = Dog.builder()
                 .ownerName("Lajos")
                 .build();
@@ -82,4 +80,5 @@ public class WuffProjectApplicationTests {
         dogRepository.save(lajos);
         assertThat(dogRepository.findAll()).hasSize(1);
     }
+
 }

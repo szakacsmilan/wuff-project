@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="navbar2 col-sm-12">
-    <div th:replace="navbar.html :: navbar">...</div>
+            <div th:replace="navbar.html :: navbar">...</div>
         </div>
     </div>
     <div class="row">
@@ -34,10 +34,10 @@
                         News feed
                     </div>
                     <div class="panel-body">
-                        <form action="/index/comment" method="post">
+                        <form action="/comment" method="post">
                             <textarea class="form-control" id="inComment" name="inComment" placeholder="Enter here for bark..." rows="3"></textarea>
                             <br>
-                            <button type="submit" class="btn btn-primary btn-sm pull-right">Let's bark!</button>
+                            <button type="submit" class="btn btn-primary btn-sm pull-right commentbtn">Let's bark!</button>
                         </form>
                         <div class="clearfix"></div>
                         <hr>
@@ -94,11 +94,11 @@
                 <form class="px-4 py-3" action="/login" method="post">
                     <div class="form-group">
                         <label for="exampleDropdownFormEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                        <input type="email" name="email" class="form-control loginForm" id="exampleDropdownFormEmail1" placeholder="email@example.com">
                     </div>
                     <div class="form-group">
                         <label for="exampleDropdownFormPassword1">Password</label>
-                        <input type="password" name="password1" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                        <input type="password" name="password1" class="form-control passwordForm" id="exampleDropdownFormPassword1" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <div class="form-check">
@@ -108,12 +108,11 @@
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary signIn">Sign in</button>
                 </form>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item sign-up" data-toggle="modal" data-target="#registerModalCenter" href="#">Sign up</a>
                 <a class="dropdown-item forgot-password" href="#">Forgot password?</a>
-            </div>
             </div>
         </div>
     </div>
@@ -152,10 +151,12 @@
                     </div>
                     <button type="submit" class="btn btn-primary" id="submitbutt">Sign up</button>
                 </form>
+            </div>
         </div>
     </div>
 </div>
-</div>
+
+
 
 </body>
 </html>

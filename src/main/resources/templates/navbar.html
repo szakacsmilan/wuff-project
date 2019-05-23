@@ -7,23 +7,23 @@
 
 <div th:fragment="navbar">
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="/index">Home page</a>
+        <a class="navbar-brand homePageBtn" href="/">Home page</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" th:switch="${session.loggedIn}">
                 <li class="nav-item" >
-                    <a class="nav-link" href="/spot/list">Spot list</a>
+                    <a class="nav-link spotlistbtn" href="/spot/list">Spot list</a>
                 </li>
                 <li class="nav-item" th:case="true">
-                    <a class="nav-link" href="/profile" >Profile</a>
+                    <a class="nav-link profileButt" href="/profile/" th:href="'/profile/'+${session.id}" >Profile</a>
                 </li>
             </ul>
         </div>
         <div class="login-container" th:switch="${session.loggedIn}">
             <div th:case="false">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class="btn btn-primary loginbtn" data-toggle="modal" data-target="#exampleModalCenter">
                   Login
                 </button>
             </div>
@@ -31,24 +31,16 @@
                 <form action="/logout" method="post">
                     <span class="navbar-brand">Hello</span>
                     <span class="navbar-brand" th:text="${session.email} + '!'">Hi User!</span>
-                    <button type="submit" class="btn btn-primary" >
+                    <button type="submit" class="btn btn-primary logoutBtn" >
                         Logout
                     </button>
                 </form>
             </div>
         </div>
-        <!--<span th:switch="${session.loggedIn}">-->
-            <!--<span th:case="false">-->
-                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">-->
-            <!--</span>-->
-            <!--<span th:case="true">-->
-                <!--<span class="navbar-brand">Hello </span>-->
-                <!--<span class="navbar-brand" th:text="${session.email}">Hi User!</span>-->
-            <!--</span>-->
-        <!--</span>-->
-
     </nav>
 </div>
+
+
 
 </body>
 </html>

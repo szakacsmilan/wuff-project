@@ -13,7 +13,8 @@ public class SeleniumTest {
 
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(WuffProjectApplication.class, args);
-        System.setProperty("webdriver.chrome.driver" ,  "/Users/milanszakacs/Applications/chromedriver");
+//        System.setProperty("webdriver.chrome.driver" ,  "/Users/milanszakacs/Applications/chromedriver");
+        System.setProperty("webdriver.chrome.driver" ,  "/home/balazs/codecool/chromedriver/chromedriver");
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("http://localhost:8888");
         webDriver.manage().window().maximize();
